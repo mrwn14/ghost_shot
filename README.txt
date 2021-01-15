@@ -1,0 +1,1 @@
+Small game using python's pygame module.
