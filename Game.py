@@ -93,6 +93,8 @@ def options():
         draw_text(starttextbig, "9", 637,144,0,0,0)
         e9 = pygame.draw.circle(screen, (255,0,0), (720,150), 20)
         draw_text(starttextbig, "10", 712,144,0,0,0)
+        ret = pygame.draw.rect(screen, (255,0,0), (20,550,70,30))
+        draw_text(starttextbig, "back", 35,557, 0,0,0)
 
 
 
@@ -123,6 +125,9 @@ def options():
         if e9.collidepoint(mx,my):
             e9 = pygame.draw.circle(screen, (255,0,0), (720,150), 23)
             draw_text(starttextbig, "10", 712,144,0,0,0)
+        if ret.collidepoint(mx,my):
+            ret = pygame.draw.rect(screen, (255,0,0), (16,546,74,34))
+            draw_text(starttextbig, "back", 35,557,0,0,0)
 
 
         draw_text(starttext, "Choose the difficulty", 325, 320,255,255,255)
@@ -136,13 +141,13 @@ def options():
 
         if d1.collidepoint(mx, my):
             d1 = pygame.draw.circle(screen, (255,0,0), (200,375), 32)
-            draw_text(starttext, "Easy", 184, 370,0,0,0)
+            draw_text(starttextbig, "Easy", 184, 370,0,0,0)
         if d2.collidepoint(mx, my):
             d2 = pygame.draw.circle(screen, (255,0,0), (400,375), 32)
-            draw_text(starttext, "Medium", 372, 370,0,0,0)
+            draw_text(starttextbig, "Medium", 372, 370,0,0,0)
         if d3.collidepoint(mx, my):
             d3 = pygame.draw.circle(screen, (255,0,0), (600,375), 32)
-            draw_text(starttext, "Hard", 583, 370,0,0,0)
+            draw_text(starttextbig, "Hard", 583, 370,0,0,0)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -175,6 +180,8 @@ def options():
                     exvel = 2
                 if event.button == 1 and d3.collidepoint(mx, my):
                     exvel = 4
+                if event.button == 1 and ret.collidepoint(mx,my):
+                    mainmenu()
 
         if num_of_enemies == 2:
             e1 = pygame.draw.circle(screen, (255,255,0), (80,150), 23)
